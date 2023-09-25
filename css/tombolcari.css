@@ -1,0 +1,16 @@
+/* Isi dari styles.css */
+.form-inline #searchInput {
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.form-inline .nav_search-btn {
+  padding: 0 10px; /* Sesuaikan sesuai kebutuhan */
+}
+
+.form-inline #searchInput.active {
+  width: 200px;
+  opacity: 1;
+  margin-right: 10px;
+}

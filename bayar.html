@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/chat.css">
+    <title>Halaman Chat</title>
+    <style>
+        /* Gaya CSS untuk halaman chat */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .chat-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .chat-header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chat-header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+
+        .chat-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        #message-input {
+            flex-grow: 1;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #send-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        #send-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box">
+            <div class="chat-header">
+                <h2>Obrolan dengan Teman</h2>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Pesan-pesan akan muncul di sini -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Ketik pesan...">
+                <button id="send-button">Kirim</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript untuk mengelola obrolan
+
+        // Fungsi untuk menambahkan pesan ke daftar pesan
+        function addMessage(message) {
+            const chatMessages = document.getElementById("chat-messages");
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message");
+            messageElement.innerText = message;
+            chatMessages.appendChild(messageElement);
+        }
+
+        // Fungsi untuk mengirim pesan
+        function sendMessage() {
+            const messageInput = document.getElementById("message-input");
+            const message = messageInput.value;
+            if (message.trim() !== "") {
+                addMessage("Anda: " + message);
+                messageInput.value = "";
+            }
+        }
+
+        // Menambahkan event listener untuk tombol "Kirim"
+        const sendButton = document.getElementById("send-button");
+        sendButton.addEventListener("click", sendMessage);
+    </script>
+</body>
+</html>
